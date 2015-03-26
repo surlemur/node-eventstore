@@ -167,7 +167,7 @@ types.forEach(function (type) {
 
                 var event2 = {
                   aggregateId: 'id2',
-                  streamRevision: 0,
+                  streamRevision: 1,
                   id:'113',
                   commitId: '987',
                   commitStamp: new Date(Date.now() + 1),
@@ -430,7 +430,7 @@ types.forEach(function (type) {
             var stream3 = [{
               aggregateId: 'id', // id already existing...
               aggregate: 'myAgg',
-              streamRevision: 0,
+              streamRevision: 2,
               id: '123',
               commitId: '1123',
               commitStamp: new Date(Date.now() + 50),
@@ -467,7 +467,7 @@ types.forEach(function (type) {
             var stream5 = [{
               aggregateId: 'id', // id already existing...
               context: 'myCont',
-              streamRevision: 0,
+              streamRevision: 3,
               id: '126',
               commitId: '1126',
               commitStamp: new Date(Date.now() + 80),
@@ -533,7 +533,7 @@ types.forEach(function (type) {
               aggregateId: 'idWithAggrAndCont2',
               aggregate: 'myAggrrr',
               context: 'myConttttt',
-              streamRevision: 0,
+              streamRevision: 2,
               id: '131',
               commitId: '1131',
               commitStamp: new Date(Date.now() + 130),
@@ -547,7 +547,7 @@ types.forEach(function (type) {
               aggregateId: 'idWithAggrAndCont',
               aggregate: 'myAggrrr2',
               context: 'myConttttt',
-              streamRevision: 0,
+              streamRevision: 2,
               id: '132',
               commitId: '1132',
               commitStamp: new Date(Date.now() + 140),
@@ -561,7 +561,7 @@ types.forEach(function (type) {
               aggregateId: 'id', // id already existing...
               aggregate: 'wowAgg',
               context: 'wowCont',
-              streamRevision: 0,
+              streamRevision: 4,
               id: '133',
               commitId: '1133',
               commitStamp: new Date(Date.now() + 150),
@@ -1189,7 +1189,7 @@ types.forEach(function (type) {
 
                   it('it should return the correct events', function (done) {
 
-                    store.getEventsByRevision({ aggregate: 'myAggrrr2', aggregateId: 'idWithAggrAndCont' }, 0, 2, function (err, evts) {
+                    store.getEventsByRevision({ aggregate: 'myAggrrr2', aggregateId: 'idWithAggrAndCont' }, 0, 3, function (err, evts) {
                       expect(err).not.to.be.ok();
                       expect(evts.length).to.eql(1);
 
@@ -1237,7 +1237,7 @@ types.forEach(function (type) {
 
                   it('it should return the correct events', function (done) {
 
-                    store.getEventsByRevision({ aggregateId: 'id', aggregate: 'wowAgg', context: 'wowCont' }, 0, 2, function (err, evts) {
+                    store.getEventsByRevision({ aggregateId: 'id', aggregate: 'wowAgg', context: 'wowCont' }, 0, 5, function (err, evts) {
                       expect(err).not.to.be.ok();
                       expect(evts.length).to.eql(1);
 
