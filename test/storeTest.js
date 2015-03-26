@@ -157,7 +157,7 @@ types.forEach(function (type) {
                   aggregateId: 'id2',
                   streamRevision: 0,
                   id: '112',
-                  commitId: '112',
+                  commitId: '987',
                   commitStamp: new Date(Date.now() + 1),
                   commitSequence: 0,
                   payload: {
@@ -169,7 +169,7 @@ types.forEach(function (type) {
                   aggregateId: 'id2',
                   streamRevision: 0,
                   id:'113',
-                  commitId: '113',
+                  commitId: '987',
                   commitStamp: new Date(Date.now() + 1),
                   commitSequence: 1,
                   payload: {
@@ -200,7 +200,7 @@ types.forEach(function (type) {
               });
 
             });
-            
+
             describe('without aggregateId', function () {
               
               it('it should callback with an error', function (done) {
