@@ -79,6 +79,26 @@ describe('mongodb store implementation', function () {
 
     });
 
+    describe('with multiple events in the array with mismatching commitId', function () {
+
+      it('it should callback with an error', function(done) {
+
+        var event1 = createEvent();
+        event1.commitId = 'zyx987';
+
+        var event2 = createEvent();
+        event2.commitId = 'yxw876';
+
+        store.addEvents([event1, event2], function(err) {
+          expect(err).to.be.ok();
+          expect(err.message).to.match(/commitId/);
+          done();
+        });
+
+      });
+
+    });
+
     describe('with non-unique aggregateId/streamRevision', function () {
 
       it('it should callback with an error', function(done) {
